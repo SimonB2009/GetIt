@@ -1,2 +1,2 @@
-# GetIt
+# RocketFly
 Simpel Webgame to have fun
