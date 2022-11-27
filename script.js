@@ -1,3 +1,6 @@
+let x;
+let y;
+let direction = 0; //from the rocket
 
 var config = {
     type: Phaser.AUTO,
@@ -30,11 +33,11 @@ function update ()
 {
     if (this.cursors.left.isDown)
     {
-        this.rocket.x = this.rocket.x -1;
+        this.rocket.rotation -= 0.07;
     }
     if (this.cursors.right.isDown)
     {
-        this.rocket.x = this.rocket.x +1;
+        this.rocket.rotation += 0.07;
     }
     if (this.cursors.up.isDown)
     {
