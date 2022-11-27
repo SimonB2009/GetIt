@@ -22,24 +22,26 @@ function create ()
 {
     this.add.image(500,400,"space");
     this.rocket = this.add.image(400,300,"rocket").setScale(0.4);
+    this.cursors = this.input.keyboard.createCursorKeys();
+
 }
 
 function update ()
 {
-    /*if (cursors.left.isDown)
+    if (this.cursors.left.isDown)
     {
         this.rocket.x = this.rocket.x +1;
     }
-    if (cursors.right.isDown)
+    if (this.cursors.right.isDown)
     {
         this.rocket.x = this.rocket.x -1;
     }
-    if (cursors.up.isDown)
+    if (this.cursors.up.isDown)
     {
         this.rocket.y = this.rocket.y +1;
     }
-    if (cursors.down.isDown)
+    if (this.cursors.down.isDown)
     {
         this.rocket.y = this.rocket.y -1;
-    }*/
+    }
 }
