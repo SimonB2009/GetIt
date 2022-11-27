@@ -30,18 +30,18 @@ function update ()
 {
     if (this.cursors.left.isDown)
     {
-        this.rocket.x = this.rocket.x +1;
+        this.rocket.x = this.rocket.x -1;
     }
     if (this.cursors.right.isDown)
     {
-        this.rocket.x = this.rocket.x -1;
+        this.rocket.x = this.rocket.x +1;
     }
     if (this.cursors.up.isDown)
     {
-        this.rocket.y = this.rocket.y +1;
+        this.rocket.y = this.rocket.y -1;
     }
     if (this.cursors.down.isDown)
     {
-        this.rocket.y = this.rocket.y -1;
+        this.rocket.y = this.rocket.y +1;
     }
 }
