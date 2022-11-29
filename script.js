@@ -30,6 +30,7 @@ function create ()
     this.rocket = this.add.image(400,300,"rocket").setScale(0.4);
     this.cursors = this.input.keyboard.createCursorKeys();
 
+    test();
 }
 
 function update ()
@@ -40,21 +41,31 @@ function update ()
 
     if (this.cursors.left.isDown)
     {
-        direction -= 1;
+        direction -= 3;
     }
     if (this.cursors.right.isDown)
     {
-        direction += 1;
+        direction += 3;
     }
     if (this.cursors.up.isDown)
     {
-        speedY -= 0.05;
+        speedY -= Math.cos(toRadians(direction)) * 0.05;
+        speedX += Math.sin(toRadians(direction)) * 0.05;
     }
-    if (this.cursors.down.isDown)
-    {
-        speedY += 0.05;
-    }
+
     if (direction < 0) direction = 360 + direction;
     if (direction > 360) direction = direction - 360;
     game.scene.scenes[0].rocket.angle = direction;
+}
+
+function toRadians (angle) {
+    return angle * (Math.PI / 180);
+}
+
+
+function test() {
+    console.log(Math.sin(toRadians(45)));
+    console.log(Math.cos(toRadians(45)));
+    console.log(Math.sin(toRadians(0)));
+    console.log(Math.cos(toRadians(0)));
 }
