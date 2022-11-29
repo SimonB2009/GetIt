@@ -1,7 +1,9 @@
 let x;
 let y;
 let direction = 0; //from the rocket
-let speed = -0.5;
+let speedY = 0;
+let speedX = 0;
+
 
 var config = {
     type: Phaser.AUTO,
@@ -32,24 +34,27 @@ function create ()
 
 function update ()
 {
-    this.rocket.y = this.rocket.y + speed; 
+    this.rocket.y = this.rocket.y + speedY;    
+    this.rocket.x = this.rocket.x + speedX; 
+ 
 
     if (this.cursors.left.isDown)
     {
-        this.rocket.rotation -= 0.07;
+        direction -= 1;
     }
     if (this.cursors.right.isDown)
     {
-        this.rocket.rotation += 0.07;
+        direction += 1;
     }
     if (this.cursors.up.isDown)
     {
-        this.rocket.y = this.rocket.y - 0.05;
-        speed -= 0.05;
+        speedY -= 0.05;
     }
     if (this.cursors.down.isDown)
     {
-        this.rocket.y = this.rocket.y + 0.05;
-        speed += 0.05;
+        speedY += 0.05;
     }
+    if (direction < 0) direction = 360 + direction;
+    if (direction > 360) direction = direction - 360;
+    game.scene.scenes[0].rocket.angle = direction;
 }
