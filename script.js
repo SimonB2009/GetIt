@@ -34,6 +34,8 @@ function create ()
     this.add.image(500,400,"space");
     this.rocket = this.add.image(400,300,"rocket").setScale(0.4);
     this.cursors = this.input.keyboard.createCursorKeys();
+    this.wind = this.add.image(600,-20,"wind").setScale(0.4);
+    
 }
 
 function update ()
@@ -57,25 +59,30 @@ function update ()
     if (direction > 360) direction = direction - 360;
     game.scene.scenes[0].rocket.angle = direction;
 
-    if (counter == 700) {
+    if (counter == 400) {
         windDirection = Phaser.Math.Between(1, 4);
-
-        if (windDirection == 1) this.wind = this.add.image(100,500,"wind").setScale(0.4);
-        if (windDirection == 2) this.wind = this.add.image(200,100,"wind").setScale(0.4);
-        if (windDirection == 3) this.wind = this.add.image(300,400,"wind").setScale(0.4);
-        if (windDirection == 4) this.wind = this.add.image(400,200,"wind").setScale(0.4);
+        this.wind.y = 250;
+        //if (windDirection == 1)  //links
+        console.log(windDirection)
+        if (windDirection == 2)  this.wind.angle = 180; //rechts
+        if (windDirection == 3) this.wind.angle = 90; //oben
+        if (windDirection == 4)  this.wind.angle = 270; //unten
      
         isWindy = 1;
     }
-    if (counter == 1000) {
+    if (counter == 700) {
         counter = 0;
         isWindy = 0;
         this.wind.y = -50;
-        this.wind.x = 0;
+        
     }
 
     if (isWindy == 1) {
-        speedX += -0.025;
+        //console.log(speedX);
+        if (windDirection == 1) speedX -= 0.025; //links
+        if (windDirection == 2) speedX += 0.025; //rechts
+        if (windDirection == 3) speedY -= 0.025; //oben
+        if (windDirection == 4) speedY += 0.025; //unten
     }
        
 
@@ -87,5 +94,8 @@ function update ()
 
 function toRadians (angle) {
     return angle * (Math.PI / 180);
+}
+function toAngle (radians) {
+    return (radians * 180) / Math.PI;
 }
 
