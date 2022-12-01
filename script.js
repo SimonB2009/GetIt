@@ -7,6 +7,7 @@ let counter = 0;
 let i = 0;
 let isWindy = 0;
 let windDirection;
+let points = 0;
 
 
 var config = {
@@ -35,7 +36,6 @@ function create ()
     this.rocket = this.add.image(400,300,"rocket").setScale(0.4);
     this.cursors = this.input.keyboard.createCursorKeys();
     this.wind = this.add.image(600,-20,"wind").setScale(0.4);
-    
 }
 
 function update ()
@@ -79,10 +79,10 @@ function update ()
 
     if (isWindy == 1) {
         //console.log(speedX);
-        if (windDirection == 1) speedX -= 0.025; //links
-        if (windDirection == 2) speedX += 0.025; //rechts
-        if (windDirection == 3) speedY -= 0.025; //oben
-        if (windDirection == 4) speedY += 0.025; //unten
+        if (windDirection == 1) speedX -= 0.03; //links
+        if (windDirection == 2) speedX += 0.03; //rechts
+        if (windDirection == 3) speedY -= 0.03; //oben
+        if (windDirection == 4) speedY += 0.03; //unten
     }
        
 
@@ -90,6 +90,8 @@ function update ()
 
     this.rocket.y = this.rocket.y + speedY;    
     this.rocket.x = this.rocket.x + speedX; 
+
+    points = counter / 70;  
 }
 
 function toRadians (angle) {
