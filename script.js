@@ -35,7 +35,7 @@ function create ()
     this.add.image(500,400,"space");
     this.rocket = this.add.image(400,300,"rocket").setScale(0.4);
     this.cursors = this.input.keyboard.createCursorKeys();
-    this.wind = this.add.image(600,-20,"wind").setScale(0.4);
+    this.wind = this.add.image(600,-50,"wind").setScale(0.4);
 }
 
 function update ()
