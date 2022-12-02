@@ -3,9 +3,9 @@ let y;
 let direction = 0; //from the rocket
 let speedY = 0;
 let speedX = 0;
-let counter = 0;
+let counter = 0; //=time not in seconds
 let i = 0;
-let isWindy = 0;
+let isWindy = 0; //1=true
 let windDirection;
 let points = 0;
 
@@ -25,9 +25,9 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.load.image('rocket','rocket.png');
-    this.load.image('space','space.png');
-    this.load.image('wind','wind.png');
+    this.load.image('rocket','rocket.png'); //rocket
+    this.load.image('space','space.png'); //background
+    this.load.image('wind','wind.png'); //wind arrow
 }
 
 function create ()
@@ -91,7 +91,7 @@ function update ()
     this.rocket.y = this.rocket.y + speedY;    
     this.rocket.x = this.rocket.x + speedX; 
 
-    points = counter / 70;  
+    points = counter / 70;  //because 700 is to much
 }
 
 function toRadians (angle) {
